@@ -1,0 +1,60 @@
+{% if message %}
+<script>
+	alert('{{ message }}');
+</script>
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign In</title>
+	<style>
+
+    body{
+        background-image: url(https://images.unsplash.com/photo-1501236570302-906143a7c9f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80);
+        /* background-repeat: no-repeat; */
+        background-size: cover;  
+        /* background-size: contain; Display the full image without stretching */
+        background-position: center; 
+    }
+    /* Adjust the font size for the label */
+    label {
+        font-size: 25px; 
+    }
+
+    /* Adjust the font size and input field dimensions */
+    input[type="email"] + input[type="password"]  {
+        font-size: 14px; /* You can adjust the value to your preference */
+        padding: 5px; /* Adjust padding to increase input field size */
+        width: 300px; /* Adjust width to control input field width */
+    }
+
+
+	</style>
+</head>
+<body>
+
+    <h2>LOGIN PAGE</h2>
+
+<form action="/postsignIn/" method="post">
+	{% csrf_token %}
+	<br/>
+<!-- Enter Your Email: -->
+    <p>
+	<label for="Email">Email</label>
+	<input type="email"id="Email" name="email"><br><br>
+    </p>
+<!-- Enter Your Password: -->   
+    <p>
+	<label for="Password">Password</label>
+	<input type="password" id="Password" name="pass"><br><br>
+    </p>
+	<input type="submit" value="SignIn">
+    <a href="{% url 'signup' %}"><button type="button">SignUp</button></a>
+    <p style="color: black;padding: 10px 0;"> <h2>Forgot Password? </h2> <a href="/reset/" style="color: black;">Click Here to Reset</a></p>
+ 
+  
+    
+</form>
+</body>
+</html>
